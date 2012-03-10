@@ -1,0 +1,43 @@
+[
+    {
+        "model": "aggregator.Feed",
+        "pk": 1,
+        "fields": {
+            "base_url": "http://www.advogato.org/",
+            "feed_url": "person/ryuslash/rss.xml",
+            "uses_title": false,
+            "favicon_ext": "ico"
+        }
+    },
+    {
+        "model": "aggregator.Feed",
+        "pk": 2,
+        "fields": {
+            "base_url": "http://diasp.org/",
+            "feed_url": "public/ryuslash.atom",
+            "uses_title": false,
+            "favicon_ext": "png",
+            "br2nl": true
+        }
+    },
+    {
+        "model": "aggregator.Feed",
+        "pk": 3,
+        "fields": {
+            "base_url": "http://identi.ca/",
+            "feed_url": "api/statuses/user_timeline/107950.rss",
+            "uses_title": false,
+            "favicon_ext": "ico"
+        }
+    },
+    {
+        "model": "aggregator.Feed",
+        "pk": 4,
+        "fields": {
+            "base_url": "https://github.com/",
+            "feed_url": "ryuslash.atom",
+            "uses_title": true,
+            "favicon_ext": "png"
+        }
+    }
+]

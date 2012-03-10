@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>ryuslash.org</title>
+  </head>
+  <body>
+
+    {% for post in list.object_list %}
+      <p>
+        <div>
+          <a href="{{ post.remote_url }}">
+            <img src="{{ post.feed.get_favicon_url }}" />
+            {{ post.updated }}
+          </a>
+        </div>
+        {% if post.feed.uses_title %}
+          <div>{{ post.title }}</div>
+        {% endif %}
+
+        {% autoescape off %}
+          {% if post.feed.br2nl %}
+            {{ post.body|linebreaks }}
+          {% else %}
+            {{ post.body }}
+          {% endif %}
+        {% endautoescape %}
+      </p>
+    {% endfor %}
+
+    <div class="pagination">
+      <span class="step-links">
+        {% if list.has_previous %}
+          <a href="/{{ list.previous_page_number }}/">previous</a>
+        {% endif %}
+
+        <span class="current">
+          Page {{ list.number }} of {{ list.paginator.num_pages }}.
+        </span>
+
+        {% if list.has_next %}
+          <a href="/{{ list.next_page_number }}/">next</a>
+        {% endif %}
+      </span>
+    </div>
+  </body>
+</html>
