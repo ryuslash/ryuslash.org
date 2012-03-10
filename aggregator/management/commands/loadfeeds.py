@@ -1,12 +1,13 @@
 import feedparser
 import datetime
+import markdown
 
 from django.core.management.base import BaseCommand
 
 from aggregator.models import Feed, Post
 
 class Command(BaseCommand):
-    help = "hi"
+    help = "Load data from saved feeds."
 
     def handle(self, *args, **kwargs):
         feeds = Feed.objects.all()
@@ -27,10 +28,15 @@ class Command(BaseCommand):
 
                     post = Post(post_id=entry.id,
                                 title=entry.title,
-                                body=entry.summary,
                                 remote_url=entry.link,
                                 updated=updated,
                                 feed=feed)
+
+                    if feed.with_markdown:
+                        post.body = markdown.markdown(entry.summary)
+                    else:
+                        post.body = entry.summary
+
                     post.save()
 
             last_updated = Post.objects.filter(feed=feed)\

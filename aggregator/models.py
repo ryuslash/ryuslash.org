@@ -5,11 +5,12 @@ class Feed(models.Model):
     base_url = models.URLField(max_length=255)
     feed_url = models.CharField(max_length=255)
     profile_url = models.CharField(max_length=255)
-    favicon_ext = models.CharField(max_length=4)
+    favicon_ext = models.CharField(max_length=4, default="png")
     title = models.CharField(max_length=500, blank=True)
     updated = models.DateTimeField(null=True, blank=True)
     uses_title = models.BooleanField(default=False)
     br2nl = models.BooleanField(default=False)
+    with_markdown = models.BooleanField(default=False)
 
     def get_profile_url(self):
         return self.base_url + self.profile_url

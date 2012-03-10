@@ -18,7 +18,8 @@
             "base_url": "http://diasp.org/",
             "feed_url": "public/ryuslash.atom",
             "profile_url": "public/ryuslash",
-            "br2nl": true
+            "br2nl": true,
+            "with_markdown": true
         }
     },
     {
