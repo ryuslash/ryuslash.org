@@ -1,51 +1,69 @@
+<!DOCTYPE html>
+
 <html>
   <head>
-    <title>ryuslash.org</title>
+    <title>ryuslash</title>
+    <link href="/static/main.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
 
-    {% for post in list.object_list %}
-      <p>
-        <div>
-          <a href="{{ post.remote_url }}">
-            <img src="{{ post.feed.get_favicon_url }}" />
-            {{ post.updated }}
-          </a>
-        </div>
-        {% if post.feed.uses_title %}
-          <div>{{ post.title }}</div>
-        {% endif %}
+    <img src="/static/logo.png" id="logo">
 
-        {% autoescape off %}
-          {% if post.feed.br2nl %}
-            {{ post.body|linebreaks }}
-          {% else %}
-            {{ post.body }}
-          {% endif %}
-        {% endautoescape %}
-        <div>
-          Through:
-          <a href="{{ post.feed.get_profile_url }}">
-            {{ post.feed.name|lower }}
-          </a>
-        </div>
-      </p>
-    {% endfor %}
+    <h1 id="sitetitle"><span id="blue">ryu</span><span id="orange">slash</span></h1>
+    <div id="sitesubtitle">Will this ever really be my website?</div>
 
-    <div class="pagination">
-      <span class="step-links">
+    <div id="feeds">
+      {% for feed in feeds %}
+        <a href="{{ feed.get_profile_url }}">
+          <img src="{{ feed.get_favicon_url }}">
+          {{ feed.name }}
+        </a>
+      {% endfor %}
+    </div>
+
+    <div id="content">
+      {% regroup list.object_list by updated.date as grouped_list %}
+      {% for group in grouped_list %}
+        <h2>{{ group.grouper }}</h2>
+
+        {% for post in group.list %}
+          <div class="post {{ post.feed.name|slugify }}">
+            <div class="posttitle">
+              <a href="{{ post.feed.get_profile_url }}"><img src="{{ post.feed.get_favicon_url }}" /></a>
+              <a href="{{ post.remote_url }}">
+                {% if post.feed.uses_title %}
+                  {{ post.title }}
+                {% else %}
+                  {{ post.updated }}
+                {% endif %}
+              </a>
+            </div>
+
+            {% autoescape off %}
+              {% if post.feed.br2nl %}
+                {{ post.body|linebreaks }}
+              {% else %}
+                {{ post.body }}
+              {% endif %}
+            {% endautoescape %}
+          </div>
+        {% endfor %}
+      {% endfor %}
+
+      <div id="pager">
         {% if list.has_previous %}
-          <a href="/{{ list.previous_page_number }}/">previous</a>
+          <a href="/{{ list.previous_page_number }}/" id="previous">previous</a>
         {% endif %}
-
-        <span class="current">
-          Page {{ list.number }} of {{ list.paginator.num_pages }}.
-        </span>
 
         {% if list.has_next %}
-          <a href="/{{ list.next_page_number }}/">next</a>
+          <a href="/{{ list.next_page_number }}/" id="next">next</a>
         {% endif %}
-      </span>
+
+        <div id="current">
+          {{ list.number }} / {{ list.paginator.num_pages }}
+        </div>
+
+      </div>
     </div>
   </body>
 </html>

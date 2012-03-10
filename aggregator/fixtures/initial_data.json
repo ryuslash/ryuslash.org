@@ -7,7 +7,6 @@
             "base_url": "http://www.advogato.org/",
             "feed_url": "person/ryuslash/rss.xml",
             "profile_url": "person/ryuslash",
-            "uses_title": false,
             "favicon_ext": "ico"
         }
     },
@@ -19,8 +18,6 @@
             "base_url": "http://diasp.org/",
             "feed_url": "public/ryuslash.atom",
             "profile_url": "public/ryuslash",
-            "uses_title": false,
-            "favicon_ext": "png",
             "br2nl": true
         }
     },
@@ -32,7 +29,6 @@
             "base_url": "http://identi.ca/",
             "feed_url": "api/statuses/user_timeline/107950.rss",
             "profile_url": "ryuslash",
-            "uses_title": false,
             "favicon_ext": "ico"
         }
     },
@@ -43,9 +39,17 @@
             "name": "Github",
             "base_url": "https://github.com/",
             "feed_url": "ryuslash.atom",
-            "profile_url": "ryuslash",
-            "uses_title": true,
-            "favicon_ext": "png"
+            "profile_url": "ryuslash"
+        }
+    },
+    {
+        "model": "aggregator.Feed",
+        "pk": 5,
+        "fields": {
+            "name": "Gitorious",
+            "base_url": "https://gitorious.org/",
+            "feed_url": "~ryuslash/feed.atom",
+            "profile_url": "~ryuslash"
         }
     }
 ]

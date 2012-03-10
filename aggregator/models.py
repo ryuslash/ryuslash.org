@@ -20,6 +20,9 @@ class Feed(models.Model):
     def get_favicon_url(self):
         return self.base_url + 'favicon.' + self.favicon_ext
 
+    class Meta:
+        ordering = [ '-updated' ]
+
 class Post(models.Model):
     post_id = models.CharField(max_length=500, unique=True)
     title = models.CharField(max_length=500)
@@ -28,3 +31,6 @@ class Post(models.Model):
     updated = models.DateTimeField()
     added = models.DateTimeField(auto_now_add=True)
     feed = models.ForeignKey(Feed)
+
+    class Meta:
+        ordering = [ '-updated' ]

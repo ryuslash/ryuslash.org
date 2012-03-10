@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #bbbbbb;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    background-color: #000000;
+    font-family: "DejaVu Sans", sans-serif;
+}
+
+.post {
+    background-color: #808080;
+    padding: 5px;
+    border: 1px #505050 solid;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.post .posttitle {
+    margin-bottom: 10px;
+}
+
+#logo {
+    float: left;
+}
+
+#sitetitle {
+    background-color: #000000;
+    color: #ffffff;
+    height: 70px;
+    line-height: 70px;
+}
+
+#sitetitle #blue {
+    color: #4169E1;
+    position: relative;
+    top: -5px;
+}
+
+#sitetitle #orange {
+    color: #ff9800;
+    position: relative;
+    top: 5px;
+}
+
+#sitesubtitle {
+    background-color: #404040;
+    color: #dddddd;
+    text-align: right;
+    height: 30px;
+    line-height: 30px;
+    border-top: 1px #808080 solid;
+}
+
+#content {
+    width: 750px;
+    margin: 0 auto;
+    color: #ffffff;
+    margin-top: 2px;
+}
+
+#content h2 {
+    margin-bottom: 3px;
+}
+
+#feeds {
+    float: right;
+    background-color: #404040;
+}
+
+#feeds a {
+    color: #dddddd;
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+}
+
+#feeds a:hover {
+    background-color: #dddddd;
+    color: #404040;
+}
+
+#pager {
+    background-color: #808080;
+    color: #000000;
+    padding: 0 5px;
+    position: relative;
+}
+
+#pager #previous {
+    position: absolute;
+    left: 5px;
+}
+
+#pager #next {
+    float: right;
+    position: absolute;
+    right: 5px;
+}
+
+#pager #current {
+    text-align: center;
+}
