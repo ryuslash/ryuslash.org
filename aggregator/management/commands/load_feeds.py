@@ -32,6 +32,8 @@ class Command(BaseCommand):
                                 updated=updated,
                                 feed=feed)
                     post.save()
-                    feed.updated = datetime.datetime.now()
 
+            last_updated = Post.objects.filter(feed=feed)\
+                                       .order_by('-updated')[0].updated
+            feed.updated = last_updated
             feed.save()
