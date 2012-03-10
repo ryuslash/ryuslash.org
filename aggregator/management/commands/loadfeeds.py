@@ -32,10 +32,15 @@ class Command(BaseCommand):
                                 updated=updated,
                                 feed=feed)
 
-                    if feed.with_markdown:
-                        post.body = markdown.markdown(entry.summary)
+                    if 'content' in entry.keys():
+                        content = entry.content[0]['value']
                     else:
-                        post.body = entry.summary
+                        content = entry.summary
+                            
+                    if feed.with_markdown:
+                        post.body = markdown.markdown(content)
+                    else:
+                        post.body = content
 
                     post.save()
 

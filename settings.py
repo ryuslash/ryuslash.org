@@ -4,6 +4,7 @@ import sys
 
 DEPLOY_PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, DEPLOY_PATH)
+sys.path.insert(0, "/home/ryuslash/.python/lib/python2.6/site-packages/South-0.7.3-py2.6.egg")
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

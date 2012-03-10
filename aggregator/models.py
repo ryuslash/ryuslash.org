@@ -25,7 +25,7 @@ class Feed(models.Model):
         ordering = [ '-updated' ]
 
 class Post(models.Model):
-    post_id = models.CharField(max_length=500, unique=True)
+    post_id = models.CharField(max_length=255, unique=True)
     title = models.CharField(max_length=500)
     body = models.TextField()
     remote_url = models.URLField(max_length=255)

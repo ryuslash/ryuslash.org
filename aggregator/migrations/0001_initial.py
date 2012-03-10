@@ -27,7 +27,7 @@ class Migration(SchemaMigration):
         # Adding model 'Post'
         db.create_table('aggregator_post', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('post_id', self.gf('django.db.models.fields.CharField')(unique=True, max_length=500)),
+            ('post_id', self.gf('django.db.models.fields.CharField')(unique=True, max_length=255)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=500)),
             ('body', self.gf('django.db.models.fields.TextField')()),
             ('remote_url', self.gf('django.db.models.fields.URLField')(max_length=255)),
