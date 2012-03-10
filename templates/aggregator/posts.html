@@ -23,6 +23,12 @@
             {{ post.body }}
           {% endif %}
         {% endautoescape %}
+        <div>
+          Through:
+          <a href="{{ post.feed.get_profile_url }}">
+            {{ post.feed.name|lower }}
+          </a>
+        </div>
       </p>
     {% endfor %}
 

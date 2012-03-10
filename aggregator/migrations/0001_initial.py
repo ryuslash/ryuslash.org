@@ -11,8 +11,10 @@ class Migration(SchemaMigration):
         # Adding model 'Feed'
         db.create_table('aggregator_feed', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=200)),
             ('base_url', self.gf('django.db.models.fields.URLField')(max_length=255)),
             ('feed_url', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('profile_url', self.gf('django.db.models.fields.CharField')(max_length=255)),
             ('favicon_ext', self.gf('django.db.models.fields.CharField')(max_length=4)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=500, blank=True)),
             ('updated', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
@@ -52,6 +54,8 @@ class Migration(SchemaMigration):
             'favicon_ext': ('django.db.models.fields.CharField', [], {'max_length': '4'}),
             'feed_url': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
+            'profile_url': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'}),
             'updated': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'uses_title': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
