@@ -14,7 +14,9 @@ class Command(BaseCommand):
 
         for feed in feeds:
             parsed = feedparser.parse(feed.get_feed_url())
-            feed.title = parsed.feed.title
+
+            if 'title' in parsed.feed:
+                feed.title = parsed.feed.title
 
             for entry in parsed.entries:
                 if not Post.objects.filter(post_id=entry.id).exists():
@@ -39,7 +41,9 @@ class Command(BaseCommand):
 
                     post.save()
 
-            last_updated = Post.objects.filter(feed=feed)\
-                                       .order_by('-updated')[0].updated
-            feed.updated = last_updated
+            if feed.post_set.count() > 0:
+                last_updated = feed.post_set.order_by('-updated')[0]\
+                                            .updated
+                feed.updated = last_updated
+
             feed.save()
