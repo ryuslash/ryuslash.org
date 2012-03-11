@@ -29,7 +29,7 @@
 
         {% for post in group.list %}
           <div class="post {{ post.feed.name|slugify }}">
-            <div class="posttitle">
+            <h3>
               <a href="{{ post.feed.get_profile_url }}"><img src="{{ post.feed.get_favicon_url }}" /></a>
               <a href="{{ post.remote_url }}">
                 {% if post.feed.uses_title %}
@@ -38,7 +38,7 @@
                   {{ post.updated }}
                 {% endif %}
               </a>
-            </div>
+            </h3>
 
             {% autoescape off %}
               {% if post.feed.br2nl %}
