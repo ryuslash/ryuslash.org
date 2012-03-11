@@ -52,5 +52,15 @@
             "feed_url": "~ryuslash/feed.atom",
             "profile_url": "~ryuslash"
         }
+    },
+    {
+        "model": "aggregator.Feed",
+        "pk": 6,
+        "fields": {
+            "name": "Github",
+            "base_url": "http://ryuslash.github.com/",
+            "feed_url": "atom.xml",
+            "uses_title": true
+        }
     }
 ]
