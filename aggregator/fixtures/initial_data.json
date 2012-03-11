@@ -57,9 +57,9 @@
         "model": "aggregator.Feed",
         "pk": 6,
         "fields": {
-            "name": "Github",
-            "base_url": "http://ryuslash.github.com/",
-            "feed_url": "atom.xml",
+            "name": "Ikiwiki",
+            "base_url": "http://ryuslash.org/wiki/",
+            "feed_url": "index.rss",
             "uses_title": true
         }
     }
