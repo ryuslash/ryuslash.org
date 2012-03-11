@@ -62,5 +62,17 @@
             "feed_url": "index.rss",
             "uses_title": true
         }
+    },
+    {
+        "model": "aggregator.Feed",
+        "pk": 7,
+        "fields": {
+            "name": "Reddit",
+            "base_url": "http://www.reddit.com/",
+            "feed_url": "user/ryuslash/.rss",
+            "profile_url": "usr/ryuslash/",
+            "uses_title": true,
+            "favicon_ext": "ico"
+        }
     }
 ]
