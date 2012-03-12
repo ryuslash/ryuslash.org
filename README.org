@@ -3,3 +3,7 @@
   This time it's fairly easy compared to the other ones. I only wrote
   a simple RSS feed parser (thanks to ~feedparser~). It collects data
   from specified places and shows that on a page.
+
+** aggregator
+
+   For the ~aggregator~ app, you should look at [[file:aggregator/README.org][it's README]].
