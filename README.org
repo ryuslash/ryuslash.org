@@ -1,0 +1,5 @@
+* Another website
+
+  This time it's fairly easy compared to the other ones. I only wrote
+  a simple RSS feed parser (thanks to ~feedparser~). It collects data
+  from specified places and shows that on a page.
