@@ -111,7 +111,11 @@ TEMPLATE_DIRS = (
     '%s/templates' % DEPLOY_PATH,
 )
 
-INSTALLED_APPS = ('aggregator',
+INSTALLED_APPS = ('django.contrib.contenttypes',
+                  'django.contrib.sessions',
+                  'django.contrib.comments',
+                  'django.contrib.staticfiles',
+                  'aggregator',
                   'south')
 
 # A sample logging configuration. The only tangible logging
