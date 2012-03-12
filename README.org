@@ -6,4 +6,4 @@
 
 ** aggregator
 
-   For the ~aggregator~ app, you should look at [[file:aggregator/README.org][it's README]].
+   For the ~aggregator~ app, you should look at its README.

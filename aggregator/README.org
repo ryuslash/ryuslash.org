@@ -1,5 +1,5 @@
 * aggregator
 
-  A simple django app that collects ~Post~s from specified ~Feed~s. It
+  A simple django app that collects posts from specified feeds. It
   keeps track of which was last updated when and copies the data to
   its own tables.
