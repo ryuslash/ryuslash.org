@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>ryuslash</title>
+    <link href="/static/main.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/static/favicon.png" />
+  </head>
+  <body>
+
+    <a href="/"><img src="/static/logo.png" id="logo"></a>
+
+    <h1 id="sitetitle">
+      <span id="blue">ryu</span><span id="orange">slash</span>
+    </h1>
+    <div id="sitesubtitle">Will this ever really be my website?</div>
+
+    {% block menu %}{% endblock %}
+
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

@@ -18,6 +18,10 @@ body {
     font-family: "DejaVu Sans", sans-serif;
 }
 
+.clear {
+    clear: both;
+}
+
 .post {
     background-color: #808080;
     padding: 5px;
@@ -27,7 +31,18 @@ body {
 }
 
 .post h3 {
-    margin-bottom: 10px;
+    float: left;
+}
+
+.post .postsubtitle {
+    margin-left: 50px;
+    text-align: right;
+    font-size: 75%;
+}
+
+.post .postcontent {
+    margin-top: 17px;
+    clear: left;
 }
 
 #logo {
@@ -70,7 +85,7 @@ body {
 }
 
 #content h2 {
-    margin-bottom: 3px;
+    margin-bottom: 5px;
 }
 
 #feeds {
@@ -97,15 +112,13 @@ body {
     position: relative;
 }
 
-#pager #previous {
-    position: absolute;
-    left: 5px;
+#pager .nav-prev {
+    float: left;
 }
 
-#pager #next {
+#pager .nav-next {
     float: right;
-    position: absolute;
-    right: 5px;
+    text-align: right;
 }
 
 #pager #current {

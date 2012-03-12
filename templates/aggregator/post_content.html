@@ -1,0 +1,28 @@
+<div class="post {{ post.feed.name|slugify }}">
+  <h3>
+    <a href="/post/{{ post.pk }}/"><img src="{{ post.feed.get_favicon_url }}" /></a>
+    <a href="/post/{{ post.pk }}/">
+      {% if post.feed.uses_title %}
+        {{ post.title }}
+      {% else %}
+        {{ post.updated }}
+      {% endif %}
+    </a>
+  </h3>
+  <div class="postsubtitle">
+    Via
+    <a href="{{ post.feed.base_url }}">{{ post.feed.name }}</a>
+    (<a href="{{ post.feed.get_profile_url }}">profile</a>,
+    <a href="{{ post.remote_url }}">origin</a>)
+  </div>
+
+  <div class="postcontent">
+    {% autoescape off %}
+      {% if post.feed.br2nl %}
+        {{ post.body|linebreaks }}
+      {% else %}
+        {{ post.body }}
+      {% endif %}
+    {% endautoescape %}
+  </div>
+</div>
