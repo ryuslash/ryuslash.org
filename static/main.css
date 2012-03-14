@@ -18,6 +18,10 @@ body {
     font-family: "DejaVu Sans", sans-serif;
 }
 
+pre {
+    margin: 20px 0;
+}
+
 .clear {
     clear: both;
 }
