@@ -74,5 +74,17 @@
             "uses_title": true,
             "favicon_ext": "ico"
         }
+    },
+    {
+        "model": "aggregator.Feed",
+        "pk": 8,
+        "fields": {
+            "name": "Wordpress",
+            "base_url": "http://ryuslash.wordpress.com/",
+            "feed_url": "feed/",
+            "profile_url": "about/",
+            "uses_title": true,
+            "favicon_ext": "ico"
+        }
     }
 ]

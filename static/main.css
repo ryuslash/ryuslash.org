@@ -49,6 +49,12 @@ pre {
     clear: left;
 }
 
+.wordpress pre.src {
+    background-color: #002b36;
+    color: #839496;
+    font-family: "DejaVu Sans Mono", mono;
+}
+
 #logo {
     float: left;
 }
