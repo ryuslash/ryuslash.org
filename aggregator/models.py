@@ -1,5 +1,11 @@
 from django.db import models
 
+class Category(models.Model):
+    name = models.SlugField()
+
+    def __unicode__(self):
+        return self.name.capitalize()
+
 class Feed(models.Model):
     name = models.CharField(max_length=200)
     base_url = models.URLField(max_length=255)
@@ -11,6 +17,7 @@ class Feed(models.Model):
     uses_title = models.BooleanField(default=False)
     br2nl = models.BooleanField(default=False)
     with_markdown = models.BooleanField(default=False)
+    categories = models.ManyToManyField(Category)
 
     def get_profile_url(self):
         return self.base_url + self.profile_url
@@ -20,6 +27,9 @@ class Feed(models.Model):
 
     def get_favicon_url(self):
         return self.base_url + 'favicon.' + self.favicon_ext
+
+    def __unicode__(self):
+        return self.name
 
     class Meta:
         ordering = [ '-updated' ]
