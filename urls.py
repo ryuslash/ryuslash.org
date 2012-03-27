@@ -6,9 +6,9 @@ from aggregator.models import Post
 from aggregator.feeds import LatestPostsFeed, LatestCommentsFeed
 
 urlpatterns = patterns('',
+    url(r'^post/((?P<pk>\d+)/)?$', DetailView.as_view(model=Post)),
     url(r'^((?P<cat>[a-z_-]+)/)?((?P<page>\d+)/)?$',
         'aggregator.views.posts'),
-    url(r'^post/((?P<pk>\d+)/)?$', DetailView.as_view(model=Post)),
     url(r'^feed/posts/$', LatestPostsFeed()),
     url(r'^feed/comments/$', LatestCommentsFeed()),
     url(r'^comments/', include('django.contrib.comments.urls')))
