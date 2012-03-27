@@ -22,6 +22,21 @@ pre {
     margin: 20px 0;
 }
 
+.category {
+    display: block;
+    float: right;
+    padding: 0 5px;
+    border-left: 1px #202020 solid;
+    margin-left: 5px;
+}
+
+.category:hover {
+    border-left: 1px #ffffff solid;
+    background-color: #dddddd;
+    color: #404040;
+    text-decoration: none;
+}
+
 .clear {
     clear: both;
 }

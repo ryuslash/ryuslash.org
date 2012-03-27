@@ -1,12 +1,14 @@
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.http import Http404
-from django.shortcuts import render_to_response
+from django.shortcuts import render
+from django.views.generic.base import TemplateView
 
-from .models import Post, Feed
+from .models import Post, Feed, Category
 
-def posts(request, page=1):
-    queryset = Post.objects.all()
-    feeds = Feed.objects.all()
+def posts(request, cat, page=1):
+    category = cat or 'posts'
+    queryset = Post.objects.filter(feed__categories__name=category)
+    feeds = Feed.objects.filter(categories__name=category)
     paginator = Paginator(queryset, 20)
 
     if page == None:
@@ -17,6 +19,8 @@ def posts(request, page=1):
     except (EmptyPage, InvalidPage):
         raise Http404
 
-    return render_to_response('aggregator/posts.html',
-                              { 'list': object_list,
-                                'feeds': feeds })
+    return render(request, 'aggregator/posts.html',
+                  { 'list': object_list,
+                    'feeds': feeds,
+                    'category': category,
+                    'categories': Category.objects.order_by('name') })
