@@ -21,11 +21,15 @@ class Command(BaseCommand):
             for entry in parsed.entries:
                 if not Post.objects.filter(post_id=entry.id).exists():
                     dt = entry.updated_parsed \
-                         or entry.published_parsed \
-                         or datetime.datetime.now()
-                    updated = datetime.datetime(
-                        dt.tm_year, dt.tm_mon, dt.tm_mday,
-                        dt.tm_hour, dt.tm_min, dt.tm_sec)
+                         or entry.published_parsed
+
+                    if dt:
+                        updated = datetime.datetime(
+                            dt.tm_year, dt.tm_mon, dt.tm_mday,
+                            dt.tm_hour, dt.tm_min, dt.tm_sec)
+                    else:
+                        updated = datetime.datetime.now()
+
                     post = Post(post_id=entry.id,
                                 title=entry.title,
                                 remote_url=entry.link,
@@ -36,7 +40,7 @@ class Command(BaseCommand):
                         content = entry.content[0]['value']
                     else:
                         content = entry.summary
-                            
+
                     if feed.with_markdown:
                         post.body = markdown.markdown(content)
                     else:
