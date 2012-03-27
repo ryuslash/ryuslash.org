@@ -24,13 +24,15 @@
 <div id="pager">
   {% if list.has_previous %}
     <div class="nav-prev">
-      <a href="/{{ list.previous_page_number }}/" id="previous">previous</a>
+      <a href="/{{ category }}/{{ list.previous_page_number }}/"
+         id="previous">previous</a>
     </div>
   {% endif %}
 
   {% if list.has_next %}
     <div class="nav-next">
-      <a href="/{{ list.next_page_number }}/" id="next">next</a>
+      <a href="/{{ category }}/{{ list.next_page_number }}/"
+         id="next">next</a>
     </div>
   {% endif %}
 

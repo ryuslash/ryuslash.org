@@ -14,7 +14,13 @@
     <h1 id="sitetitle">
       <span id="blue">ryu</span><span id="orange">slash</span>
     </h1>
-    <div id="sitesubtitle">Will this ever really be my website?</div>
+    <div id="sitesubtitle">
+      Will this ever really be my website?
+      {% for category in categories %}
+        <a class="category"
+           href="/{{ category.name|slugify }}/">{{ category.name }}</a>
+      {% endfor %}
+    </div>
 
     {% block menu %}{% endblock %}
 
