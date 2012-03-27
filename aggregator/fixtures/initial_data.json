@@ -3,14 +3,14 @@
         "model": "aggregator.Category",
         "pk": 1,
         "fields": {
-            "name": "misc"
+            "name": "posts"
         }
     },
     {
         "model": "aggregator.Category",
         "pk": 2,
         "fields": {
-            "name": "code"
+            "name": "activity"
         }
     },
     {
