@@ -105,7 +105,21 @@
             "feed_url": "feed/",
             "profile_url": "about/",
             "uses_title": true,
-            "favicon_ext": "ico"
+            "favicon_ext": "ico",
+            "categories": [ 1 ]
+        }
+    },
+    {
+        "model": "aggregator.Feed",
+        "pk": 9,
+        "fields": {
+            "name": "StackOverflow",
+            "base_url": "http://stackoverflow.com/",
+            "feed_url": "feeds/user/459915",
+            "profile_url": "users/459915/ryuslash",
+            "uses_title": true,
+            "favicon_ext": "ico",
+            "categories": [ 1 ]
         }
     }
 ]
