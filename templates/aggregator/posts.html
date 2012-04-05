@@ -20,7 +20,11 @@
 {% regroup list.object_list by updated.date as grouped_list %}
 {% for group in grouped_list %}
   <header>
-    <h2>{{ group.grouper }}</h2>
+    <h2>
+      <time datetime="{{ group.grouper|date:"Y-m-d" }}">
+        {{ group.grouper }}
+      </time>
+    </h2>
   </header>
 
   {% for post in group.list %}
