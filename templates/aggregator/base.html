@@ -12,16 +12,20 @@
 
     <a href="/"><img src="/static/logo.png" id="logo"></a>
 
-    <h1 id="sitetitle">
-      <span id="blue">ryu</span><span id="orange">slash</span>
-    </h1>
-    <div id="sitesubtitle">
-      Will this ever really be my website?
-      {% for category in categories %}
-        <a class="category"
-           href="/{{ category.name|slugify }}/">{{ category.name }}</a>
-      {% endfor %}
-    </div>
+    <header>
+      <hgroup>
+        <h1 id="sitetitle">
+          <span id="blue">ryu</span><span id="orange">slash</span>
+        </h1>
+        <h2 id="sitesubtitle">
+          Will this ever really be my website?
+          {% for category in categories %}
+            <a class="category"
+               href="/{{ category.name|slugify }}/">{{ category.name }}</a>
+          {% endfor %}
+        </h2>
+      </hgroup>
+    </header>
 
     {% block menu %}{% endblock %}
 

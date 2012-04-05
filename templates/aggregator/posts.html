@@ -19,7 +19,9 @@
 {% block content %}
 {% regroup list.object_list by updated.date as grouped_list %}
 {% for group in grouped_list %}
-  <h2>{{ group.grouper }}</h2>
+  <header>
+    <h2>{{ group.grouper }}</h2>
+  </header>
 
   {% for post in group.list %}
     {% include "aggregator/post_content.html" %}
