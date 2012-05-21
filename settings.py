@@ -113,7 +113,6 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = ('django.contrib.contenttypes',
                   'django.contrib.sessions',
-                  'django.contrib.comments',
                   'django.contrib.staticfiles',
                   'aggregator',
                   'south')

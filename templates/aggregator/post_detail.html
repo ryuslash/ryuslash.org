@@ -1,19 +1,7 @@
 {% extends "aggregator/base.html" %}
-{% load comments %}
-
-{% block head %}
-<link href="/static/comments.css" type="text/css" rel="stylesheet" />
-{% endblock %}
 
 {% block content %}
 {% include "aggregator/post_content.html" with post=object %}
-
-{% get_comment_count for object as comment_count %}
-{% if comment_count > 0 %}
-  {% render_comment_list for object %}
-{% endif %}
-
-{% render_comment_form for object %}
 
 <div id="pager">
   {% with next=object.get_next_by_updated previous=object.get_previous_by_updated %}
