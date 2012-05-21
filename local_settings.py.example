@@ -34,3 +34,9 @@ TIME_ZONE = 'Europe/Brussels'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = ''
+
+FEEDS = {'Diaspora*':
+         { 'base_url': 'http://diasp.org/',
+           'feed_url': 'public/someuser.atom',
+           'markdown': True,
+           'category': 'post' }}

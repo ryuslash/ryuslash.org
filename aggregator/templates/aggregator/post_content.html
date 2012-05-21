@@ -1,34 +1,23 @@
-<article class="post {{ post.feed.name|slugify }}">
+<article class="post">
   <header>
     <hgroup>
       <h1>
         <a href="/post/{{ post.pk }}/">
-          <img src="{{ post.feed.get_favicon_url }}" />
+          <img src="/static/images/logos/{{ post.icon }}" />
         </a>
         <a href="/post/{{ post.pk }}/">
-          {% if post.feed.uses_title %}
-            {{ post.title }}
-          {% else %}
-            {{ post.updated }}
-          {% endif %}
+          {{ post.title }}
         </a>
       </h1>
       <h2 class="postsubtitle">
-        Via
-        <a href="{{ post.feed.base_url }}">{{ post.feed.name }}</a>
-        (<a href="{{ post.feed.get_profile_url }}">profile</a>,
-        <a href="{{ post.remote_url }}">origin</a>)
+        (<a href="{{ post.link }}">origin</a>)
       </h2>
     </hgroup>
   </header>
 
   <div class="postcontent">
     {% autoescape off %}
-      {% if post.feed.br2nl %}
-        {{ post.body|linebreaks }}
-      {% else %}
-        {{ post.body }}
-      {% endif %}
+      {{ post.content }}
     {% endautoescape %}
   </div>
 </article>

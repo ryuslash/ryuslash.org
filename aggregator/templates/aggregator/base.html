@@ -19,10 +19,8 @@
         </h1>
         <h2 id="sitesubtitle">
           Will this ever really be my website?
-          {% for category in categories %}
-            <a class="category"
-               href="/{{ category.name|slugify }}/">{{ category.name }}</a>
-          {% endfor %}
+          <a class="category" href="/activity/">Activities</a>
+          <a class="category" href="/post/">Posts</a>
         </h2>
       </hgroup>
     </header>

@@ -3,12 +3,11 @@ from django.http import Http404
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 
-from .models import Post, Feed, Category
+from .models import Post
 
 def posts(request, cat, page=1):
-    category = cat or 'posts'
-    queryset = Post.objects.filter(feed__categories__name=category)
-    feeds = Feed.objects.filter(categories__name=category)
+    category = cat or 'post'
+    queryset = Post.objects.filter(category=category)
     paginator = Paginator(queryset, 20)
 
     if page == None:
@@ -21,6 +20,4 @@ def posts(request, cat, page=1):
 
     return render(request, 'aggregator/posts.html',
                   { 'list': object_list,
-                    'feeds': feeds,
-                    'category': category,
-                    'categories': Category.objects.order_by('name') })
+                    'category': category })
