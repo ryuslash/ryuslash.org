@@ -10,22 +10,36 @@
   </head>
   <body>
 
-    <a href="/"><img src="/static/logo.png" id="logo"></a>
-
     <header>
-      <hgroup>
-        <h1 id="sitetitle">
-          <span id="blue">ryu</span><span id="orange">slash</span>
-        </h1>
-        <h2 id="sitesubtitle">
-          Will this ever really be my website?
-          <a class="category" href="/activity/">Activities</a>
-          <a class="category" href="/post/">Posts</a>
-        </h2>
-      </hgroup>
+      <img src="/static/logo.png" alt="ryuslash.org" title="ryuslash.org"/>
+      <h1>
+        <a href="http://ryuslash.org">
+          <span id="logo-blue">ryu</span><span id="logo-orange">slash</span>
+        </a>
+      </h1>
+
+      <nav>
+        <ul>
+          {% if category == 'post' %}
+            <li class="selected top">
+          {% else %}
+            <li class="top">
+          {% endif %}
+          <a href="/">posts</a>
+            </li>
+
+          {% if category == 'activity' %}
+            <li class="selected bottom">
+          {% else %}
+            <li class="bottom">
+          {% endif %}
+          <a href="/activity/">activities</a>
+            </li>
+        </ul>
+      </nav>
     </header>
 
-    <div id="content">
+    <section class="content">
       {% block content %}{% endblock %}
     </div>
   </body>

@@ -1,4 +1,5 @@
 {% extends "aggregator/base.html" %}
+{% load posts_extras %}
 
 {% block head %}
 <link href="/feeds/posts/" rel="alternate" type="application/rss+xml"
@@ -6,20 +7,19 @@
 {% endblock %}
 
 {% block content %}
-{% regroup list.object_list by updated.date as grouped_list %}
-{% for group in grouped_list %}
-  <header>
-    <h2>
-      <time datetime="{{ group.grouper|date:"Y-m-d" }}">
-        {{ group.grouper }}
-      </time>
-    </h2>
-  </header>
-
-  {% for post in group.list %}
-    {% include "aggregator/post_content.html" %}
+  {% for post in list.object_list %}
+    <article class="post">
+      (<span class="keyword">defpost</span>
+      <a href="{{ post.link }}"
+         class="variable-name">{{ post.title|slugify|nameless }}</a>
+         (<img src="/static/images/logos/{{ post.icon }}" width="16"
+              height="16"/>)
+         <div class="doc">
+           {% autoescape off %}{{ post.content }}{% endautoescape %}
+         </div>
+         <span class="string">&quot;{{ post.updated }}&quot;</span>)
+    </article>
   {% endfor %}
-{% endfor %}
 
 <div id="pager">
   {% if list.has_previous %}

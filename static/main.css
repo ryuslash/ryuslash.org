@@ -6,7 +6,7 @@
 
 a {
     text-decoration: none;
-    color: #bbbbbb;
+    color: orange;
 }
 
 a:hover {
@@ -14,133 +14,259 @@ a:hover {
 }
 
 body {
-    background-color: #000000;
+    background-color: #252a2b;
+    color: #ffffff;
     font-family: "DejaVu Sans", sans-serif;
+    padding-left: 10px;
+}
+
+body > header {
+    float: left;
+    position: fixed;
+}
+
+body > header > h1 {
+    font-size: 20px;
+}
+
+body > header > h1 > a:hover {
+    text-decoration: none;
+}
+
+body > header > nav > ul {
+    list-style-type: none;
+    margin-top: 5px;
+}
+
+body > header > nav > ul > li {
+    margin: 0 3px;
+    font-weight: bold;
+    color: white;
+    border-width: 0 1px 0 1px;
+    border-style: solid;
+    border-color: #808080;
+}
+
+body > header > nav > ul > li:hover {
+    background-color: #181818;
+    border-color: #404040;
+}
+
+body > header > nav > ul > li.top {
+    border-top-width: 1px;
+    border-radius: 4px 4px 0 0;
+}
+
+body > header > nav > ul > li.bottom {
+    border-bottom-width: 1px;
+    border-radius: 0 0 4px 4px;
+}
+
+body > header > nav > ul > li > a {
+    padding: 3px 6px 3px 6px;
+    display: block;
+}
+
+body > header > nav > ul > li > a:hover {
+    text-decoration: none;
+    color: orangered;
 }
 
 pre {
-    margin: 20px 0;
+    margin: 20px 0 20px 40px;
+    font-family: "DejaVu Sans Mono", mono;
+    background-color: #181818;
+    border-radius: 10px;
+    padding: 5px;
+    color: #eeeeec;
 }
 
-.category {
-    display: block;
-    float: right;
-    padding: 0 5px;
-    border-left: 1px #202020 solid;
-    margin-left: 5px;
+code {
+    font-family: "DejaVu Sans Mono", mono;
+    background-color: #181818;
+    padding: 1px 3px;
+    border-radius: 5px;
+    margin: 0 2px;
+    color: #eeeeec;
 }
 
-.category:hover {
-    border-left: 1px #ffffff solid;
-    background-color: #dddddd;
-    color: #404040;
-    text-decoration: none;
+article ul {
+    margin-left: 20px;
 }
 
-.clear {
-    clear: both;
+article img {
+    vertical-align: middle;
+}
+
+#logo-blue {
+    color: orangered;
+    position: relative;
+    top: -10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+#logo-orange {
+    color: orange;
+}
+
+.keyword {
+    font-weight: bold;
+    color: #799fcf;
+}
+
+.variable-name {
+    color: #ef2929;
+}
+
+.string {
+    color: #ad7fa8;
+    margin-left: 25px;
 }
 
 .post {
-    background-color: #808080;
-    padding: 5px;
-    border: 1px #505050 solid;
-    margin-bottom: 15px;
-    color: #000000;
+    margin-bottom: 20px;
 }
 
-.post h3 {
-    float: left;
+.doc {
+    color: #babdb6;
+    margin-left: 25px;
 }
 
-.post .postcontent {
-    margin-top: 17px;
-    clear: left;
-}
-
-.wordpress pre.src {
-    background-color: #002b36;
-    color: #839496;
-    font-family: "DejaVu Sans Mono", mono;
-}
-
-#logo {
-    float: left;
-}
-
-#sitetitle {
-    background-color: #000000;
-    color: #ffffff;
-    height: 70px;
-    line-height: 70px;
-}
-
-#sitetitle #blue {
-    color: #4169E1;
-    position: relative;
-    top: -5px;
-}
-
-#sitetitle #orange {
-    color: #ff9800;
-    position: relative;
-    top: 5px;
-}
-
-#sitesubtitle {
-    background-color: #404040;
-    color: #dddddd;
-    text-align: right;
-    height: 30px;
-    line-height: 30px;
-    border-top: 1px #808080 solid;
-    font-size: 16px;
-}
-
-#content {
-    width: 750px;
-    margin: 0 auto;
-    color: #ffffff;
-    margin-top: 2px;
-}
-
-#content h2 {
-    margin-bottom: 5px;
-}
-
-#feeds {
-    float: right;
-    background-color: #404040;
-}
-
-#feeds a {
-    color: #dddddd;
-    display: block;
-    padding: 5px;
+.doc a {
     text-decoration: none;
+    color: #73d216;
 }
 
-#feeds a:hover {
-    background-color: #dddddd;
-    color: #404040;
+.doc a:hover {
+    text-decoration: underline;
 }
 
-#pager {
-    background-color: #808080;
-    color: #000000;
-    padding: 0 5px;
-    position: relative;
+.doc p:last-child {
+    display: inline;
 }
 
-#pager .nav-prev {
-    float: left;
+.content {
+    width: 750px;
+    margin: 10px auto;
 }
 
-#pager .nav-next {
-    float: right;
-    text-align: right;
-}
 
-#pager #current {
-    text-align: center;
-}
+/* .category { */
+/*     display: block; */
+/*     float: right; */
+/*     padding: 0 5px; */
+/*     border-left: 1px #202020 solid; */
+/*     margin-left: 5px; */
+/* } */
+
+/* .category:hover { */
+/*     border-left: 1px #ffffff solid; */
+/*     background-color: #dddddd; */
+/*     color: #404040; */
+/*     text-decoration: none; */
+/* } */
+
+/* .clear { */
+/*     clear: both; */
+/* } */
+
+/* .post { */
+/*     margin-left: 20px; */
+/* } */
+
+/* .post, */
+/* .post header, */
+/* .post header h1, */
+/* .post .postcontent { */
+/*     display: inline */
+/* } */
+
+/* .wordpress pre.src { */
+/*     background-color: #002b36; */
+/*     color: #839496; */
+/*     font-family: "DejaVu Sans Mono", mono; */
+/* } */
+
+/* #logo { */
+/*     float: left; */
+/* } */
+
+/* #sitetitle { */
+/*     background-color: #000000; */
+/*     color: #ffffff; */
+/*     height: 70px; */
+/*     line-height: 70px; */
+/* } */
+
+/* #sitetitle #blue { */
+/*     color: #4169E1; */
+/*     position: relative; */
+/*     top: -5px; */
+/* } */
+
+/* #sitetitle #orange { */
+/*     color: #ff9800; */
+/*     position: relative; */
+/*     top: 5px; */
+/* } */
+
+/* #sitesubtitle { */
+/*     background-color: #404040; */
+/*     color: #dddddd; */
+/*     text-align: right; */
+/*     height: 30px; */
+/*     line-height: 30px; */
+/*     border-top: 1px #808080 solid; */
+/*     font-size: 16px; */
+/* } */
+
+/* #content { */
+/*     width: 750px; */
+/*     margin: 0 auto; */
+/*     color: #ffffff; */
+/*     margin-top: 2px; */
+/* } */
+
+/* #content h2 { */
+/*     margin-bottom: 5px; */
+/* } */
+
+/* #feeds { */
+/*     float: right; */
+/*     background-color: #404040; */
+/* } */
+
+/* #feeds a { */
+/*     color: #dddddd; */
+/*     display: block; */
+/*     padding: 5px; */
+/*     text-decoration: none; */
+/* } */
+
+/* #feeds a:hover { */
+/*     background-color: #dddddd; */
+/*     color: #404040; */
+/* } */
+
+/* #pager { */
+/*     background-color: #808080; */
+/*     color: #000000; */
+/*     padding: 0 5px; */
+/*     position: relative; */
+/* } */
+
+/* #pager .nav-prev { */
+/*     float: left; */
+/* } */
+
+/* #pager .nav-next { */
+/*     float: right; */
+/*     text-align: right; */
+/* } */
+
+/* #pager #current { */
+/*     text-align: center; */
+/* } */
