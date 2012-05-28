@@ -5,17 +5,6 @@
       title="All posts" />
 {% endblock %}
 
-{% block menu %}
-<div id="feeds">
-  {% for feed in feeds %}
-    <a href="{{ feed.get_profile_url }}">
-      <img src="{{ feed.get_favicon_url }}">
-      {{ feed.name }}
-    </a>
-  {% endfor %}
-</div>
-{% endblock %}
-
 {% block content %}
 {% regroup list.object_list by updated.date as grouped_list %}
 {% for group in grouped_list %}
