@@ -53,12 +53,6 @@ pre {
     float: left;
 }
 
-.post .postsubtitle {
-    margin-left: 50px;
-    text-align: right;
-    font-size: 75%;
-}
-
 .post .postcontent {
     margin-top: 17px;
     clear: left;

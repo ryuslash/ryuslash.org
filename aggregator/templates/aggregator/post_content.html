@@ -1,18 +1,11 @@
 <article class="post">
   <header>
-    <hgroup>
-      <h1>
-        <a href="/post/{{ post.pk }}/">
-          <img src="/static/images/logos/{{ post.icon }}" />
-        </a>
-        <a href="/post/{{ post.pk }}/">
-          {{ post.title }}
-        </a>
-      </h1>
-      <h2 class="postsubtitle">
-        (<a href="{{ post.link }}">origin</a>)
-      </h2>
-    </hgroup>
+    <h1>
+      <a href="{{ post.link }}">
+        <img src="/static/images/logos/{{ post.icon }}" />
+        {{ post.title }}
+      </a>
+    </h1>
   </header>
 
   <div class="postcontent">
