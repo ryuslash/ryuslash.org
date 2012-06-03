@@ -23,21 +23,21 @@
 
 <div id="pager">
   {% if list.has_previous %}
-    <div class="nav-prev">
+    <span class="nav-prev">
       <a href="/{{ category }}/{{ list.previous_page_number }}/"
-         id="previous">previous</a>
-    </div>
+         id="previous">[previous]</a>
+    </span>
   {% endif %}
+
+  <span id="current">
+    {{ list.number }} / {{ list.paginator.num_pages }}
+  </span>
 
   {% if list.has_next %}
-    <div class="nav-next">
+    <span class="nav-next">
       <a href="/{{ category }}/{{ list.next_page_number }}/"
-         id="next">next</a>
-    </div>
+         id="next">[next]</a>
+    </span>
   {% endif %}
-
-  <div id="current">
-    {{ list.number }} / {{ list.paginator.num_pages }}
-  </div>
 </div>
 {% endblock %}
