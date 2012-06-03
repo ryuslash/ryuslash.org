@@ -84,6 +84,9 @@ class Command(BaseCommand):
                 if feedoptions['markdown']:
                     content = markdown.markdown(content)
 
+                if feedoptions.get('nl2br'):
+                    content = re.sub('\n', '</br>\n', content)
+
                 post = Post(post_id=entry.id,
                             title=entry.title,
                             category=feedoptions['category'],
