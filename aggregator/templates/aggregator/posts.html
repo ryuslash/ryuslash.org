@@ -11,7 +11,7 @@
     <article class="post">
       (<span class="keyword">defpost</span>
       <a href="{{ post.link }}"
-         class="variable-name">{{ post.title|slugify|nameless }}</a>
+         class="variable-name">{{ post.title|slugify|nameless|truncate:48 }}</a>
          (<img src="/static/images/logos/{{ post.icon }}" width="16"
               height="16"/>)
          <div class="doc">
