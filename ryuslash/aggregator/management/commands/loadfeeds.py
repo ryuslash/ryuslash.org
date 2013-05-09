@@ -87,13 +87,15 @@ class Command(BaseCommand):
                 if feedoptions.get('nl2br'):
                     content = re.sub('\n', '</br>\n', content)
 
-                post = Post(post_id=entry.id,
-                            title=entry.title,
-                            category=feedoptions['category'],
-                            link=entry.link,
-                            updated=updated,
-                            icon=icon,
-                            content=content)
+                post = Post(
+                    post_id=entry.id,
+                    title=entry.title if feedoptions.get('title') else '',
+                    category=feedoptions['category'],
+                    link=entry.link,
+                    updated=updated,
+                    icon=icon,
+                    content=content
+                )
 
                 post.save()
                 newcount += 1
