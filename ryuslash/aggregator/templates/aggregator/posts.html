@@ -2,42 +2,63 @@
 {% load posts_extras %}
 
 {% block head %}
-<link href="/feeds/posts/" rel="alternate" type="application/rss+xml"
-      title="All posts" />
+  <link href="/feeds/posts/" rel="alternate" type="application/rss+xml"
+        title="All posts" />
 {% endblock %}
 
 {% block content %}
-  {% for post in list.object_list %}
-    <article class="post">
-      (<span class="keyword">defpost</span>
-      <a href="{{ post.link }}"
-         class="variable-name">{{ post.title|slugify|nameless|truncate:48 }}</a>
-         (<img src="/static/images/logos/{{ post.icon }}" width="16"
-              height="16"/>)
-         <div class="doc">
-           {% autoescape off %}{{ post.content }}{% endautoescape %}
-         </div>
-         <span class="string">&quot;{{ post.updated }}&quot;</span>)
-    </article>
-  {% endfor %}
+  <div class="row">
+    <div class="span3">
+      <img src="https://secure.gravatar.com/avatar/d3af11dc82b44c4f78517c2036271d5c?s=210" />
+      <br />
+    </div>
+    <div class="span9">
+      {% for post in list.object_list %}
+        <table>
+          <tr>
+            <td style="vertical-align: top">
+              {% if post.title %}
+                <h4>
+              {% endif %}
+              <a href="{{ post.link }}">
+                <img class="media-object" src="/static/images/logos/{{ post.icon }}" />
+              </a>
+              {% if post.title %}
+                </h4>
+              {% endif %}
+            </td>
+            <td>
+              {% if post.title %}
+                <h4>{{ post.title }}</h4>
+              {% endif %}
+              {% autoescape off %}{{ post.content }}{% endautoescape %}
+            </td>
+          </tr>
+        </table>
+        <br />
+      {% endfor %}
 
-<div id="pager">
-  {% if list.has_previous %}
-    <span class="nav-prev">
-      <a href="/{{ category }}/{{ list.previous_page_number }}/"
-         id="previous">[previous]</a>
-    </span>
-  {% endif %}
+      <div class="pagination pagination-centered">
+        <ul>
+          {% if list.has_previous %}
+            <li>
+              <a href="/{{ category }}/{{ list.previous_page_number }}/">
+                Prev
+              </a>
+            </li>
+          {% endif %}
 
-  <span id="current">
-    {{ list.number }} / {{ list.paginator.num_pages }}
-  </span>
+          <li><a href="#">{{ list.number }}</a></li>
 
-  {% if list.has_next %}
-    <span class="nav-next">
-      <a href="/{{ category }}/{{ list.next_page_number }}/"
-         id="next">[next]</a>
-    </span>
-  {% endif %}
-</div>
+          {% if list.has_next %}
+            <li>
+              <a href="/{{ category }}/{{ list.next_page_number }}">
+                Next
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
 {% endblock %}

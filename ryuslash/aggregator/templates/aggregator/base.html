@@ -4,42 +4,32 @@
   <head>
     <meta charset="utf-8" />
     <title>ryuslash</title>
-    <link href="/static/main.css" rel="stylesheet" />
+    <link href="http://ryuslash.org/bootstrap2/css/bootstrap.min.css"
+          rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="/static/favicon.png" />
     {% block head %}{% endblock %}
   </head>
   <body>
 
-    <header>
-      <img src="/static/logo.png" alt="ryuslash.org" title="ryuslash.org"/>
-      <h1>
-        <a href="http://ryuslash.org">
-          <span id="logo-blue">ryu</span><span id="logo-orange">slash</span>
-        </a>
-      </h1>
-
-      <nav>
-        <ul>
-          {% if category == 'post' %}
-            <li class="selected top">
-          {% else %}
-            <li class="top">
-          {% endif %}
-          <a href="/">posts</a>
+    <div class="navbar navbar-static-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <img class="pull-left" src="/static/logo.png"
+               alt="ryuslash.org" title="ryuslash.org" />
+          <a class="brand" href="http://ryuslash.org">ryuslash</a>
+          <ul class="nav pull-right">
+            <li {% if category == 'post' %}class="active"{% endif %}>
+              <a href="/post/">posts</a>
             </li>
-
-          {% if category == 'activity' %}
-            <li class="selected bottom">
-          {% else %}
-            <li class="bottom">
-          {% endif %}
-          <a href="/activity/">activities</a>
+            <li {% if category == 'activity' %}class="active"{% endif %}>
+              <a href="/activity/">activities</a>
             </li>
-        </ul>
-      </nav>
-    </header>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <section class="content">
+    <div class="container">
       {% block content %}{% endblock %}
     </div>
   </body>
