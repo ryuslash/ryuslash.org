@@ -1,14 +1,15 @@
-import feedparser
 import datetime
+import feedparser
 import markdown
-import re
 import os
+import re
 import urllib2
 
+from django.conf import settings
 from django.core.management.base import BaseCommand
 
 from aggregator.models import Post
-import settings
+
 
 class Command(BaseCommand):
     help = "Load data from saved feeds."
@@ -26,8 +27,8 @@ class Command(BaseCommand):
     def get_logopath(self, feedname, options):
         ext = self.get_ext(options)
         filename = self.prep_feedname(feedname) + '.' + ext
-        basedir = os.path.dirname(os.path.abspath(settings.__file__))
-        return os.path.join(basedir, 'static/images/logos', filename)
+        basedir = settings.STATICFILES_DIRS[0]
+        return os.path.join(basedir, 'images/logos', filename)
 
     def have_logo(self, feedname, options):
         logopath = self.get_logopath(feedname, options)
@@ -55,8 +56,8 @@ class Command(BaseCommand):
         for feedname, feedoptions in settings.FEEDS.iteritems():
             parsed = \
                 feedparser.parse(self.construct_feed_url(feedoptions))
-            icon = self.prep_feedname(feedname) + '.' \
-                   + self.get_ext(feedoptions)
+            icon = (self.prep_feedname(feedname) + '.' +
+                    self.get_ext(feedoptions))
             newcount = 0
 
             if not self.have_logo(feedname, feedoptions):
@@ -66,8 +67,7 @@ class Command(BaseCommand):
                 if Post.objects.filter(post_id=entry.id).exists():
                     continue
 
-                dt = entry.updated_parsed \
-                     or entry.published_parsed
+                dt = entry.updated_parsed or entry.published_parsed
 
                 if dt:
                     updated = datetime.datetime(

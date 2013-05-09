@@ -1,6 +1,7 @@
 from django.contrib.syndication.views import Feed
 
-from .models import Post
+from aggregator.models import Post
+
 
 class LatestPostsFeed(Feed):
     title = "ryuslash's RSS feed"
