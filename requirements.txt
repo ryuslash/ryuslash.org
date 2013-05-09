@@ -1,4 +1,4 @@
-Django==1.4
+Django==1.5
 South==0.7.4
 Feedparser==5.1.1
 Markdown==2.1.1
