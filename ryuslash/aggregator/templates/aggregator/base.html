@@ -16,13 +16,16 @@
         <div class="container">
           <img class="pull-left" src="/static/logo.png"
                alt="ryuslash.org" title="ryuslash.org" />
-          <a class="brand" href="http://ryuslash.org">ryuslash</a>
+          <a class="brand" href="{% url 'index' %}">ryuslash</a>
           <ul class="nav pull-right">
+            <li {% if category == 'all' %}class="active"{%endif%}>
+              <a href="{% url 'index' %}">all</a>
+            </li>
             <li {% if category == 'post' %}class="active"{% endif %}>
-              <a href="/post/">posts</a>
+              <a href="{% url 'index' cat='post' %}">posts</a>
             </li>
             <li {% if category == 'activity' %}class="active"{% endif %}>
-              <a href="/activity/">activities</a>
+              <a href="{% url 'index' cat='activity' %}">activities</a>
             </li>
           </ul>
         </div>

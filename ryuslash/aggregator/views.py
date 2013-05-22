@@ -2,20 +2,19 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.http import Http404
 from django.shortcuts import render
 
-from aggregator.models import Post
+from aggregator.models import CATEGORIES, Feed, Post
 
 
-def _get_category(cat):
-    if cat == 'activity':
-        return 1
-    else:
-        return 0
+def posts(request, cat=None, page=1):
+    category = cat or 'all'
+    posts = Post.objects.all()
+    feeds = Feed.objects.all()
 
+    if category != 'all':
+        posts = posts.filter(feed__category=CATEGORIES.index(category))
+        feeds = feeds.filter(category=CATEGORIES.index(category))
 
-def posts(request, cat, page=1):
-    category = _get_category(cat)
-    queryset = Post.objects.filter(feed__category=category)
-    paginator = Paginator(queryset, 20)
+    paginator = Paginator(posts, 20)
 
     if page is None:
         page = 1
@@ -25,6 +24,8 @@ def posts(request, cat, page=1):
     except (EmptyPage, InvalidPage):
         raise Http404
 
-    return render(request, 'aggregator/posts.html',
-                  {'list': object_list,
-                   'category': category})
+    ctx = {'list': object_list,
+           'category': category,
+           'feeds': feeds}
+
+    return render(request, 'aggregator/posts.html', ctx)

@@ -11,6 +11,15 @@
     <div class="span3">
       <img src="https://secure.gravatar.com/avatar/d3af11dc82b44c4f78517c2036271d5c?s=210" />
       <br />
+      <br />
+      Feeds:
+      {% for feed in feeds %}
+        <a href="{{ feed.base_url }}" class="btn btn-block">
+          {{ feed.name }}
+        </a>
+      {% empty %}
+        <br />None...
+      {% endfor %}
     </div>
     <div class="span9">
       {% for post in list.object_list %}
@@ -44,7 +53,7 @@
         <ul>
           {% if list.has_previous %}
             <li>
-              <a href="/{{ category }}/{{ list.previous_page_number }}/">
+              <a href="{% url 'index' cat=category page=list.previous_page_number %}">
                 Prev
               </a>
             </li>
@@ -54,7 +63,7 @@
 
           {% if list.has_next %}
             <li>
-              <a href="/{{ category }}/{{ list.next_page_number }}">
+              <a href="{% url 'index' cat=category page=list.next_page_number %}">
                 Next
               </a>
             </li>

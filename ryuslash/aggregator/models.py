@@ -1,5 +1,7 @@
 from django.db import models
 
+CATEGORIES = ['post', 'activity']
+
 
 class Feed(models.Model):
     name = models.CharField(max_length=300)
@@ -9,8 +11,9 @@ class Feed(models.Model):
     uses_markdown = models.BooleanField()
     uses_titles = models.BooleanField()
     convert_newlines = models.BooleanField()
-    category = models.SmallIntegerField(choices=((0, 'post'),
-                                                 (1, 'activity')))
+    category = models.SmallIntegerField(
+        choices=[(CATEGORIES.index(c), c) for c in CATEGORIES]
+    )
 
     def __unicode__(self):
         return self.name
