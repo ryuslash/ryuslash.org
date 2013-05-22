@@ -82,7 +82,6 @@ class Command(BaseCommand):
                 post = Post(
                     post_id=entry.id,
                     title=entry.title if feed.uses_titles else '',
-                    category=feed.category,
                     link=entry.link,
                     updated=updated,
                     icon=icon,
