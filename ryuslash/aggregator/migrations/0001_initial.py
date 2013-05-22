@@ -14,6 +14,7 @@ class Migration(SchemaMigration):
             ('name', self.gf('django.db.models.fields.CharField')(max_length=300)),
             ('base_url', self.gf('django.db.models.fields.URLField')(max_length=200)),
             ('feed_url', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('profile_url', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('favicon_ext', self.gf('django.db.models.fields.CharField')(default='ico', max_length=10)),
             ('uses_markdown', self.gf('django.db.models.fields.BooleanField')(default=False)),
             ('uses_titles', self.gf('django.db.models.fields.BooleanField')(default=False)),
@@ -51,6 +52,7 @@ class Migration(SchemaMigration):
             'feed_url': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '300'}),
+            'profile_url': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'uses_markdown': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'uses_titles': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
         },

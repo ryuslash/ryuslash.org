@@ -7,6 +7,7 @@ class Feed(models.Model):
     name = models.CharField(max_length=300)
     base_url = models.URLField()
     feed_url = models.CharField(max_length=100)
+    profile_url = models.CharField(max_length=100, blank=True)
     favicon_ext = models.CharField(max_length=10, default='ico')
     uses_markdown = models.BooleanField()
     uses_titles = models.BooleanField()
@@ -14,6 +15,9 @@ class Feed(models.Model):
     category = models.SmallIntegerField(
         choices=[(CATEGORIES.index(c), c) for c in CATEGORIES]
     )
+
+    def profile(self):
+        return '%s%s' % (self.base_url, self.profile_url)
 
     def __unicode__(self):
         return self.name
